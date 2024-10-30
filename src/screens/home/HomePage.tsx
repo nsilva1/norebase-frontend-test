@@ -4,7 +4,7 @@ import { Loader } from '../../components/common/Loader';
 import { getData } from '../../utils/axiosConfig'
 import { toast } from 'react-toastify';
 import { ENDPOINTS } from '../../utils/endpoints'
-// import { mockTickers } from '../../utils/mockData';
+
 
 const HomePage = () => {
   const [tickers, setTickers] = useState<ITicker[]>([])
@@ -12,12 +12,9 @@ const HomePage = () => {
   const [startIndex, setStartIndex] = useState(0);
   
   const [pageIndex, setPageIndex] = useState(1);
-//   const tickers = mockTickers.data;
+
 
   const nextPage = () => {
-    // if (endIndex >= tickers.length) {
-    //   return;
-    // }
     setPageIndex(pageIndex + 1);
     setStartIndex(startIndex + 10);
   };
@@ -111,16 +108,16 @@ const HomePage = () => {
                 <button
                   className={`btn btn-link ${
                     startIndex === 0 ? 'hidden' : ''
-                  }`}
+                  } no-underline`}
                   onClick={previousPage}
                 >
-                  Previous
                   <i className='bi bi-arrow-left'></i>
+                  Previous
                 </button>
               </div>
               <div className='col-span-1'>
                 <button
-                  className='btn btn-link'
+                  className='btn btn-link no-underline'
                   onClick={nextPage}
                 >
                   Next
@@ -144,16 +141,16 @@ const HomePage = () => {
                 <button
                   className={`btn btn-link ${
                     startIndex === 0 ? 'hidden' : ''
-                  }`}
+                  } no-underline`}
                   onClick={previousPage}
                 >
-                  Previous
                   <i className='bi bi-arrow-left'></i>
+                  Previous
                 </button>
               </div>
               <div className='col-span-1'>
                 <button
-                  className='btn btn-link'
+                  className='btn btn-link no-underline'
                   onClick={nextPage}
                 >
                   Next
