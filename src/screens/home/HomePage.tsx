@@ -109,20 +109,22 @@ const HomePage = () => {
             <div className='flex justify-between mt-4'>
               <div className='col-span-1'>
                 <button
-                  className={`btn btn-error hover:text-white ${
+                  className={`btn btn-link ${
                     startIndex === 0 ? 'hidden' : ''
                   }`}
                   onClick={previousPage}
                 >
                   Previous
+                  <i className='bi bi-arrow-left'></i>
                 </button>
               </div>
               <div className='col-span-1'>
                 <button
-                  className='btn btn-success hover:text-white'
+                  className='btn btn-link'
                   onClick={nextPage}
                 >
                   Next
+                  <i className='bi bi-arrow-right'></i>
                 </button>
               </div>
             </div>
@@ -140,20 +142,22 @@ const HomePage = () => {
             <div className='flex justify-between mt-4'>
               <div className='col-span-1'>
                 <button
-                  className={`btn btn-error hover:text-white ${
+                  className={`btn btn-link ${
                     startIndex === 0 ? 'hidden' : ''
                   }`}
                   onClick={previousPage}
                 >
                   Previous
+                  <i className='bi bi-arrow-left'></i>
                 </button>
               </div>
               <div className='col-span-1'>
                 <button
-                  className='btn btn-success hover:text-white'
+                  className='btn btn-link'
                   onClick={nextPage}
                 >
                   Next
+                  <i className='bi bi-arrow-right'></i>
                 </button>
               </div>
             </div>
