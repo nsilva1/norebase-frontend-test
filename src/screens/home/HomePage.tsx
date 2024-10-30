@@ -10,17 +10,16 @@ const HomePage = () => {
   const [tickers, setTickers] = useState<ITicker[]>([])
   const [loading, setLoading] = useState(false);
   const [startIndex, setStartIndex] = useState(0);
-  const [endIndex, setEndIndex] = useState(10);
+  
   const [pageIndex, setPageIndex] = useState(1);
 //   const tickers = mockTickers.data;
 
   const nextPage = () => {
-    if (endIndex >= tickers.length) {
-      return;
-    }
+    // if (endIndex >= tickers.length) {
+    //   return;
+    // }
     setPageIndex(pageIndex + 1);
     setStartIndex(startIndex + 10);
-    setEndIndex(endIndex + 10);
   };
 
   const previousPage = () => {
@@ -29,14 +28,14 @@ const HomePage = () => {
     }
     setPageIndex(pageIndex - 1);
     setStartIndex(startIndex - 10);
-    setEndIndex(endIndex - 10);
   };
 
   const fetchTickers = useCallback(async () => {
     setLoading(true);
+    const url = `${ENDPOINTS.Tickers.main}/?start=${startIndex}&limit=10`
 
     try {
-      const responseData = await getData(ENDPOINTS.Tickers.main)
+      const responseData = await getData(url)
       const tickerData = responseData.data
       setTickers(tickerData)
     } catch (error) {
@@ -44,7 +43,7 @@ const HomePage = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [startIndex]);
 
   useEffect(() => {
     fetchTickers();
@@ -63,7 +62,7 @@ const HomePage = () => {
 
   let tableBody = (
     <tbody>
-      {tickers.slice(startIndex, endIndex).map((ticker) => (
+      {tickers.map((ticker) => (
         <tr key={ticker.id}>
           <td>{ticker.name}</td>
           <td>{ticker.symbol}</td>
@@ -76,7 +75,7 @@ const HomePage = () => {
 
   let mobileTableBody = (
     <tbody>
-      {tickers.slice(startIndex, endIndex).map((ticker) => (
+      {tickers.map((ticker) => (
         <tr key={ticker.id} className='grid grid-cols-2'>
           <div className='flex flex-col'>
             <th>Coin</th>
