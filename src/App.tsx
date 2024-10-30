@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify'
 // Component/Screen imports
 import { Navbar } from './components/common/Navbar'
 import { Footer } from './components/common/Footer'
+import { HomePage } from './screens/home/HomePage'
 
 // CSS imports
 import 'react-toastify/dist/ReactToastify.css'
@@ -18,7 +19,9 @@ function App() {
       <ToastContainer />
       <BrowserRouter>
         <Navbar />
-        <Routes></Routes>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
         <Footer />
       </BrowserRouter>
     </main>
