@@ -1,7 +1,7 @@
 // Config imports
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
-
+import { ROUTES } from './utils/routes'
 
 // Component/Screen imports
 import { Navbar } from './components/common/Navbar'
@@ -20,7 +20,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path={ROUTES.HOME} element={<HomePage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
